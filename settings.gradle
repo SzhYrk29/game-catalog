@@ -1,0 +1,5 @@
+rootProject.name = 'game-catalog'
+include ':game-catalog-data'
+include ':game-catalog-web'
+include ':game-catalog-core'
+
