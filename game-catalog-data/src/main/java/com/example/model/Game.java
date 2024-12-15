@@ -1,15 +1,13 @@
 package com.example.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @Getter
@@ -24,10 +22,16 @@ public class Game {
     private double price;
     private String description;
 
-    public Game(String title, LocalDate releaseDate, double price, String description) {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "developer_id")
+    @JsonManagedReference
+    private Developer developer;
+
+    public Game(String title, LocalDate releaseDate, double price, String description, Developer developer) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.price = price;
         this.description = description;
+        this.developer = developer;
     }
 }

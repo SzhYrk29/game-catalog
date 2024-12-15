@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.model.Developer;
 import com.example.model.Game;
 import com.example.repository.GameRepository;
 import jakarta.annotation.PostConstruct;
@@ -25,11 +26,18 @@ public class GameService {
             this.gameRepository.save(new Game("The Witcher 3: Wild Hunt",
                     LocalDate.parse("2015-05-18"),
                     99.99,
-                    "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy, a living weapon that can alter the shape of the world."));
+                    "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy, a living weapon that can alter the shape of the world.",
+                    new Developer("CD Project Red", "Poland")));
             this.gameRepository.save(new Game("Ghost of Tsushima",
                     LocalDate.parse("2024-05-16"),
                     259.00,
-                    "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC; forge your own path through this open-world action adventure and uncover its hidden wonders."));
+                    "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC; forge your own path through this open-world action adventure and uncover its hidden wonders.",
+                    new Developer("Sucker Punch Productions", "USA")));
+            this.gameRepository.save(new Game("God of War Ragnarok",
+                    LocalDate.parse("2024-10-19"),
+                    259.00,
+                    "Kratos and Atreus embark on a mythic journey for answers before Ragnarök arrives – now on PC.",
+                    new Developer("Santa Monika Studio", "USA")));
         }
     }
 
